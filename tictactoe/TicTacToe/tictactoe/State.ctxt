@@ -1,4 +1,8 @@
 #BlueJ class context
 comment0.target=State
 comment0.text=\n\ Tic-Tac-Toe\ state\ variables.\n
-numComments=1
+comment1.params=
+comment1.target=int\ getwhoseMove()
+comment2.params=
+comment2.target=void\ setwhoseMove()
+numComments=3
