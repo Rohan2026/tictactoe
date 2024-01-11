@@ -11,7 +11,7 @@ private String xName = "";
 private String oName = "";
 private int[][] board = new int[Constants.BOARD_SIZE][Constants.BOARD_SIZE];
     
-    public int getGameState() {
+public int getGameState() {
   return this.gameState;
 }
 
@@ -43,24 +43,20 @@ public void setoName() {
     this.oName = oName;
 }
 
+public boolean isWinner() {
+    return false;
+}
+
 //Board
 
 public int getBoardCell(int row, int col) {
-	    return this.board[row][col];
-	}
+        return this.board[row][col];
+}
 
 public void setBoardCell(int row, int col, int value) {
-	    this.board[row][col] = value;
+        this.board[row][col] = value;
+}
 }
 
-    
-    
-    //public boolean isWinner() {
-        //e
-   // }
-    
-    //public boolean isTie() {
-        //e
-    //}
-}
+
 
