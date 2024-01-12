@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=State
+comment0.text=\n\ Tic-Tac-Toe\ state\ variables.\n
+comment1.params=
+comment1.target=boolean\ isWinner()
+comment10.params=row\ col
+comment10.target=int\ getBoardCell(int,\ int)
+comment11.params=row\ col\ value
+comment11.target=void\ setBoardCell(int,\ int,\ int)
+comment2.params=
+comment2.target=int\ getGameState()
+comment3.params=gameState
+comment3.target=void\ setGameState(int)
+comment4.params=
+comment4.target=int\ getwhoseMove()
+comment5.params=whoseMove
+comment5.target=void\ setwhoseMove(int)
+comment6.params=
+comment6.target=java.lang.String\ getxName()
+comment7.params=xName
+comment7.target=void\ setxName(java.lang.String)
+comment8.params=
+comment8.target=java.lang.String\ getoName()
+comment9.params=oName
+comment9.target=void\ setoName(java.lang.String)
+numComments=12

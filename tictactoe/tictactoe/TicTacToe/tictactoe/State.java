@@ -5,58 +5,26 @@ package tictactoe;
  */
 public class State
 {
-private int gameState = Constants.STANDBY;
-private int whoseMove = Constants.X;
-private String xName = "";
-private String oName = "";
-private int[][] board = new int[Constants.BOARD_SIZE][Constants.BOARD_SIZE];
+    private int gameState = Constants.STANDBY;
+    private int whoseMove = Constants.X;
+    private String xName = "";
+    private String oName = "";
+    private int[][] board = new int[Constants.BOARD_SIZE][Constants.BOARD_SIZE];
     
-public int getGameState() {
-  return this.gameState;
-}
-
-public void setGameState(int gameState) {
-  this.gameState = gameState;
-}
-
-public int getwhoseMove() {
-    return this.whoseMove;
-}
+    public int getwhoseMove() {
+        return this.whoseMove;
+    }
     
-public void setwhoseMove() {
-    this.whoseMove = whoseMove;
-}
+    public void setwhoseMove() {
+        this.whoseMove = whoseMove;
+    }
     
-public String getxName(){
-    return this.xName;
-}
+    //public boolean isWinner() {
+        //e
+   // }
     
-public void setxName() {
-    this.xName = xName;
+    //public boolean isTie() {
+        //e
+    //}
 }
-    
-public String getoName() {
-    return this.oName;
-}
-    
-public void setoName() {
-    this.oName = oName;
-}
-
-public boolean isWinner() {
-    return false;
-}
-
-//Board
-
-public int getBoardCell(int row, int col) {
-        return this.board[row][col];
-}
-
-public void setBoardCell(int row, int col, int value) {
-        this.board[row][col] = value;
-}
-}
-
-
 
