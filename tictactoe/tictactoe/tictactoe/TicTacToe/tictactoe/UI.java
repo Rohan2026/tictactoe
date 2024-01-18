@@ -1,7 +1,6 @@
 package tictactoe;
 import java.util.Scanner;
 
-
 /**
  * UI class
  */
@@ -13,16 +12,16 @@ public class UI
     public UI() {
         scanner = new Scanner(System.in);         
     }
- // Utility methods
+    // Utility methods
     public String getXOrO(int whoseMove) {
         return (whoseMove == -1) ? "X" : "O";
     }
 
-    public String getPlayerName(int whoseMove, String xName, String oName) {
-        return (whoseMove == -1) ? xName : oName;
+    public String getPlayerName(int whoseMove, String XName, String OName) {
+        return (whoseMove == -1) ? XName : OName;
     }
 
-    public boolean isLegalMove(int state, int row, int col) {
+    public boolean isLegalMove(State state, int row, int col) {
         return 1 <= row && row <= Constants.BOARD_SIZE &&
         1 <= col && col <= Constants.BOARD_SIZE &&
         state.getBoardCell(row, col) == Constants.BLANK;
@@ -34,11 +33,11 @@ public class UI
         return scanner.next();
     }
 
-    public int getMoveRow(int whoseMove, String xName, String oName) {
-        int row;
+    public int getMoveRow(int whoseMove, String XName, String OName) {
+        int row = 0;
         while (row <= 0 || row >= 3) {
             try {
-                System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, xName, oName));
+                System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove,XName,OName));
                 row = scanner.nextInt();
             } catch (Exception e) {
                 System.out.println(Constants.INVALID_ROW_OR_COLUMN);
@@ -47,11 +46,11 @@ public class UI
         return row;
     }
 
-    public int getMoveCol(int whoseMove, String xName, String oName) {
-        int col;
+    public int getMoveCol(int whoseMove, String XName, String OName) {
+        int col = 0;
         while (col <= 0 || col >= 4) {
             try {
-                System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, xName, oName));
+                System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, XName, OName));
                 col = scanner.nextInt();
             } catch (Exception e) {
                 System.out.println(Constants.INVALID_ROW_OR_COLUMN);
@@ -88,16 +87,15 @@ public class UI
     }
 
     public void printMove(State state, int row, int col) {
-        System.out.printf(Constants.PRINT_MOVE, getXOrO(state.getwhoseMove()), getPlayerName(state.getwhoseMove(), state.getxName(), state.getoName()), row, col);
+        System.out.printf(Constants.PRINT_MOVE, getXOrO(state.getwhoseMove()), getPlayerName(state.getwhoseMove(), state.getXName(), state.getOName()), row, col);
     } 
 
     public void printWinner(State state) {
-        System.out.printf(Constants.WINNER, getXOrO(state.getwhoseMove()), getPlayerName(state.getwhoseMove(), state.getxName(), state.getoName()));
+        System.out.printf(Constants.WINNER, getXOrO(state.getwhoseMove()), getPlayerName(state.getwhoseMove(), state.getXName(), state.getOName()));
     }
 
     public void printTieGame() {
         System.out.println(Constants.TIE_GAME);
     }
 }
-
 

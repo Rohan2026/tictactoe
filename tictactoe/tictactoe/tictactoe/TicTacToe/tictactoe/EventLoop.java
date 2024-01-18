@@ -22,27 +22,27 @@ public class EventLoop {
         state.setGameState(Constants.GET_X_MOVE);
     
       } else if (gameState == Constants.GET_X_MOVE) {
-        row = ui.getMoveRow(state.getWhoseMove());
-        col = ui.getMoveCol(state.getWhoseMove());
+        row = ui.getMoveRow(state.getwhoseMove(), state.getXName(), state.getOName());
+        col = ui.getMoveCol(state.getwhoseMove(), state.getXName(), state.getOName());
         if (ui.isLegalMove(state, row, col)) {
           state.setGameState(Constants.MAKE_MOVE);
         }
 
       } else if (gameState == Constants.GET_O_MOVE) {
-        row = ui.getMoveRow(state.getWhoseMove());
-        col = ui.getMoveCol(state.getWhoseMove());
+        row = ui.getMoveRow(state.getwhoseMove(), state.getXName(), state.getOName());
+        col = ui.getMoveCol(state.getwhoseMove(), state.getXName(), state.getOName());
         if (ui.isLegalMove(state, row, col)) {
           state.setGameState(Constants.MAKE_MOVE);
         }
 
       } else if (gameState == Constants.MAKE_MOVE) {
         ui.printMove(state, row, col);
-        state.setBoardCell(state.getWhoseMove(), row, col);
+        state.setBoardCell(state.getwhoseMove(), row, col);
         state.setGameState(Constants.CHECK_IF_WINNER);
 
       } else if (gameState == Constants.CHECK_IF_WINNER) {
         if (state.isWinner()) {
-          if (state.getWhoseMove() == Constants.X) {
+          if (state.getwhoseMove() == Constants.X) {
             state.setGameState(Constants.X_WINS);
           } else {
             state.setGameState(Constants.O_WINS);
@@ -53,11 +53,11 @@ public class EventLoop {
 
       } else if (gameState == Constants.CHECK_IF_TIE) {
         if (state.isTie()) {
-          ui.printTie();
+          ui.printTieGame();
           state.setGameState(Constants.GAME_OVER);
         } else {
-          state.setWhoseMove(state.getWhoseMove() * -1);
-          if (state.getWhoseMove() == Constants.X) {
+          state.setwhoseMove(state.getwhoseMove() * -1);
+          if (state.getwhoseMove() == Constants.X) {
             state.setGameState(Constants.GET_X_MOVE);
           } else {
             state.setGameState(Constants.GET_O_MOVE);

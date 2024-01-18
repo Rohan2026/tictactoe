@@ -7,8 +7,8 @@ public class State
 {
 private int gameState = Constants.STANDBY;
 private int whoseMove = Constants.X;
-private String xName = "";
-private String oName = "";
+private String XName = "";
+private String OName = "";
 private int[][] board = new int[Constants.BOARD_SIZE][Constants.BOARD_SIZE];
  
 public boolean isWinner() {
@@ -26,7 +26,16 @@ public boolean isWinner() {
     total = getBoardCell(0,2) + getBoardCell(1,1) + getBoardCell(2,0);
     if(total == -3||total == 3)return true;
     return false;
-}   
+}
+
+public boolean isTie() {
+    for (int row=0; row<Constants.BOARD_SIZE; row++) {
+        for (int col=0; col<Constants.BOARD_SIZE; col++) {
+            if(getBoardCell(row,col) == Constants.BLANK) return false;
+        }
+    }
+    return true;
+}
 
 public int getGameState() {
   return this.gameState;
@@ -44,20 +53,20 @@ public void setwhoseMove(int whoseMove) {
     this.whoseMove = whoseMove;
 }
     
-public String getxName(){
-    return this.xName;
+public String getXName(){
+    return this.XName;
 }
     
-public void setxName(String xName) {
-    this.xName = xName;
+public void setXName(String XName) {
+    this.XName = XName;
 }
     
-public String getoName() {
-    return this.oName;
+public String getOName() {
+    return this.OName;
 }
     
-public void setoName(String oName) {
-    this.oName = oName;
+public void setOName(String OName) {
+    this.OName = OName;
 }
 
 //Board
