@@ -30,7 +30,7 @@ public class UI
     public boolean isLegalMove(State state, int row, int col) {
         return 1 <= row && row <= Constants.BOARD_SIZE &&
         1 <= col && col <= Constants.BOARD_SIZE &&
-        state.getBoardCell(row, col) == Constants.BLANK;
+        state.getBoardCell(row-1, col-1) == Constants.BLANK;
     }
 
     // Prompt for input methods
@@ -41,7 +41,7 @@ public class UI
 
     public int getMoveRow(int whoseMove, String XName, String OName) {
         int row = 0;
-        while (row <= 0 || row >= 3) {
+        while (row <= 0 || row >= 4) {
             try {
                 System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove,XName,OName));
                 row = scanner.nextInt();
@@ -98,7 +98,12 @@ public class UI
     } 
 
     public void printWinner(State state) {
-        System.out.printf(Constants.WINNER, getXOrO(state.getwhoseMove()), getPlayerName(state.getwhoseMove(), state.getXName(), state.getOName()));
+        System.out.println();
+        System.out.printf(
+        Constants.WINNER, 
+        getXOrO(state.getwhoseMove()), 
+        getPlayerName(state.getwhoseMove(), state.getXName(), state.getOName())
+        );
         System.out.println();
     }
 
