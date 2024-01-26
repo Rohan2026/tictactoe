@@ -10,7 +10,7 @@ public class UI
     Scanner scanner;
 
     public UI() {
-        scanner = new Scanner(System.in);         
+        scanner = new Scanner(System.in);   
     }
     // Utility methods
     public String getXOrO(int whoseMove) {
@@ -42,11 +42,15 @@ public class UI
     public int getMoveRow(int whoseMove, String XName, String OName) {
         int row = 0;
         while (row <= 0 || row >= 4) {
+            if (row < 0 || row > 3) {
+                System.out.println(Constants.INVALID_ROW_OR_COLUMN);
+            }
             try {
                 System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove,XName,OName));
                 row = scanner.nextInt();
             } catch (Exception e) {
                 System.out.println(Constants.INVALID_ROW_OR_COLUMN);
+                scanner.next();
             }
         }
         return row;
@@ -55,6 +59,9 @@ public class UI
     public int getMoveCol(int whoseMove, String XName, String OName) {
         int col = 0;
         while (col <= 0 || col >= 4) {
+            if(col < 0 || col > 3) {
+                System.out.println(Constants.INVALID_ROW_OR_COLUMN);
+            }
             try {
                 System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, XName, OName));
                 col = scanner.nextInt();
