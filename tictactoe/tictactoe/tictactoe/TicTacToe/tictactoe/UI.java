@@ -42,7 +42,7 @@ public class UI
     public int getMoveRow(int whoseMove, String XName, String OName) {
         int row = 0;
         while (row <= 0 || row >= 4) {
-            if (row < 0 || row > 3) {
+            if (row <= 0 || row >= 4) {
                 System.out.println(Constants.INVALID_ROW_OR_COLUMN);
             }
             try {
@@ -67,6 +67,7 @@ public class UI
                 col = scanner.nextInt();
             } catch (Exception e) {
                 System.out.println(Constants.INVALID_ROW_OR_COLUMN);
+                scanner.next();
             }
         }
         return col;
