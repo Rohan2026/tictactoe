@@ -81,10 +81,9 @@ public class EventLoop {
 
       } else if (gameState == Constants.GAME_OVER) {
         if (ui.startNewGame()) {
-          state.setGameState(Constants.STANDBY);
+          state.resetBoard();
         } else {
          state.setGameState(Constants.QUIT_PROGRAM);
-         
         }
       }
     }

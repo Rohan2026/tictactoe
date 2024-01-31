@@ -78,7 +78,12 @@ public class UI
     public boolean startNewGame() {
         System.out.println(Constants.START_NEW_GAME);
         String yesOrNo = scanner.next();
-        return yesOrNo.equals("Y") || yesOrNo.equals("y");
+        if (yesOrNo.equals("Y") || yesOrNo.equals("y")) {
+            state.resetBoard();
+            return true;
+        }else{
+            return false;
+        }
     }
 
     // Printing text methods
@@ -87,14 +92,12 @@ public class UI
     }
 
     public void printBoard(State state) {
+        System.out.println(" ");
         System.out.println(Constants.DIVIDER_STRING);
         for (int row = 0; row < Constants.BOARD_SIZE; row++) {
             System.out.printf(Constants.BOARD_STRING, getXOrO(state.getBoardCell(row, 0)), getXOrO(state.getBoardCell(row, 1)), getXOrO(state.getBoardCell(row, 2)));
             System.out.println();
             System.out.println(Constants.DIVIDER_STRING);
-        }
-        if (gameState == Constants.STANDBY) {
-            printBoard(currentState);
         }
     }
 
